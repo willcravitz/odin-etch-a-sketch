@@ -1,0 +1,41 @@
+@font-face {
+	font-family: "Typewriter";
+	src: url(static/fonts/TT2020StyleE-Regular.woff2) format("woff2");
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.grid-container {
+	font-family: "Typewriter", "Courier New", Courier, monospace;
+	display: flex;
+	flex-direction: column;
+	width: 425px;
+	height: 550px;
+	padding: 50px;
+	border: 1px solid #000;
+	background-image: url("static/images/img-noise-2000x2000.png");
+	background-size: cover;
+	background-position: center;
+	box-sizing: border-box;
+}
+
+.grid-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.grid-item {
+	height: 15px;
+	width: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.active-grid-item {
+	background-color: #000;
+}
