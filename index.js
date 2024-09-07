@@ -14,6 +14,9 @@ let activeCell = 0;
 const bounce = 30;
 let typingTimeout;
 
+const keyClick = new Audio("static/sounds/typewriter_click.wav");
+const newLineDing = new Audio("static/sounds/typewriter_ding.wav");
+
 const gridContainer = document.querySelector(".grid-container");
 
 function setupGrid(rows = numRows, cols = numCols) {
@@ -63,7 +66,7 @@ function nextCell(ding = true) {
 	const updateActive = () => {
 		if (activeCell < numRows * numCols - 1) {
 			if (activeCell % numCols === numCols - 1 && ding) {
-				const newLineDing = new Audio("static/sounds/typewriter_ding.wav");
+				newLineDing.currentTime = 0;
 				newLineDing.play();
 			}
 			activeCell++;
@@ -112,7 +115,7 @@ document.addEventListener("keydown", (event) => {
 			typingTimeout = setTimeout(() => {
 				getActiveCell().innerHTML = key;
 				nextCell();
-				const keyClick = new Audio("static/sounds/typewriter_click.wav");
+				keyClick.currentTime = 0;
 				keyClick.play();
 			}, bounce);
 		}
